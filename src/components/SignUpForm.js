@@ -11,10 +11,15 @@ const SignUpForm = () => {
         const changeHandler = (e) => {
             setUserData({...userData, [e.target.name]: e.target.value });
         }
+
+        const submitHandler = (e) => {
+            e.preventDefault();
+            console.log("submitted ...");
+        }
         
     return ( 
         <div className="mainSection">
-            <form>
+            <form onSubmit={submitHandler}>
                 <div className="formControl">
                     <label>Nama</label>
                     <input 
