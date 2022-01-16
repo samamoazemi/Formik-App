@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { useFormik } from "formik";
 
 const SignUpForm = () => {
 
-    const [userData, setUserData] = useState({
-         name:"",
-         email:"",
-         password:"",
+    const formik = useFormik ({
+        initialValues:{
+          name:"",
+          email:"",
+          password:"",
+        },
     })
-
-        const changeHandler = (e) => {
-            setUserData({...userData, [e.target.name]: e.target.value });
-        }
-
-        const submitHandler = (e) => {
-            e.preventDefault();
-            console.log("submitted ...");
-        }
+    console.log(formik.values);
+    
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log("submitted ...");
+    }
         
     return ( 
         <div className="mainSection">
@@ -24,8 +23,8 @@ const SignUpForm = () => {
                     <label>Nama</label>
                     <input 
                       type="text"
-                      onChange={changeHandler} 
-                      value={userData.name}
+                      onChange={formik.handleChange} 
+                      value={formik.values.name}
                       name="name"
                       />
                 </div>
@@ -33,8 +32,8 @@ const SignUpForm = () => {
                     <label>Email</label>
                     <input 
                       type="text"
-                      onChange={changeHandler} 
-                      value={userData.email}
+                      onChange={formik.handleChange} 
+                      value={formik.values.email}
                       name="email"
                       />
                 </div>
@@ -42,8 +41,8 @@ const SignUpForm = () => {
                     <label>Password</label>
                     <input
                       type="text"
-                      onChange={changeHandler} 
-                      value={userData.password}
+                      onChange={formik.handleChange} 
+                      value={formik.values.password}
                       name="password"
                       />
                 </div>
