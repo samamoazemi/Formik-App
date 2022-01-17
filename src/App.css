@@ -8,7 +8,7 @@
 }
 form{
   width: 30rem;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +20,7 @@ form{
 .formControl{
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 .formControl label{
   margin-bottom: 5px;
@@ -30,7 +31,6 @@ form{
 }
 .formControl input{
   width: 20rem;
-  margin-bottom: 30px;
   padding: 7px 10px;
   outline: none;
   border: 1px solid #b0daed;
@@ -45,4 +45,9 @@ button{
   padding: 6px 10px;
   margin: 10px;
   width: 7rem;
+}
+.error{
+  color: red;
+  font-size: 12px;
+  margin: 5px 0px 0px 2px;
 }

@@ -15,7 +15,7 @@ const onSubmit = (values) => {
 // 3.
 const validate = (values) => {
     let errors = {};
-    
+
     if(!values.name){
         errors.name = "Name is Required";
     }
@@ -37,10 +37,8 @@ const SignUpForm = () => {
         initialValues,
         onSubmit,
         validate,
-        // onSubmit:(values) => console.log(values),
-        // validate: (values) => console.log(values),
     })
-    console.log(formik.errors)
+    console.log("visited fields", formik.touched);
    
     return ( 
         <div className="mainSection">
@@ -50,27 +48,41 @@ const SignUpForm = () => {
                     <input 
                       type="text"
                       onChange={formik.handleChange} 
+                      onBlur={formik.handleBlur}
                       value={formik.values.name}
                       name="name"
                       />
+                      {formik.errors.name && formik.touched.name && (
+                      <div className="error">{formik.errors.name}</div>
+                      )}
                 </div>
+
                 <div className="formControl">
                     <label>Email</label>
                     <input 
                       type="text"
-                      onChange={formik.handleChange} 
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur} 
                       value={formik.values.email}
                       name="email"
                       />
+                       {formik.errors.email && formik.touched.email && (
+                      <div className="error">{formik.errors.email}</div>
+                      )}
                 </div>
+
                 <div className="formControl">
                     <label>Password</label>
                     <input
                       type="text"
-                      onChange={formik.handleChange} 
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur} 
                       value={formik.values.password}
                       name="password"
                       />
+                       {formik.errors.password && formik.touched.password && (
+                      <div className="error">{formik.errors.password}</div>
+                      )}
                 </div>
                 <button type="submit">submit</button>
             </form>
