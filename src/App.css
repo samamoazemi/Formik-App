@@ -8,7 +8,7 @@
 }
 form{
   width: 28rem;
-  height: 82vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,4 +52,18 @@ button{
   color: red;
   font-size: 10px;
   margin: 5px 0px 0px 2px;
+}
+.genderInput{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-left: 5.5rem;
+  
+}
+.genderInput input{
+  margin: 10px 3px 20px 20px;
+}
+.genderInput{
+  font-size: 12px;
 }
