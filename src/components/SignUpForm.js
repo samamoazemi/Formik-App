@@ -47,8 +47,9 @@ const SignUpForm = () => {
         initialValues,
         onSubmit,
         validationSchema,
+        validateOnMount: true,
     })
-    console.log("visited fields", formik.touched);
+    console.log(formik);
    
     return ( 
         <div className="mainSection">
@@ -92,7 +93,7 @@ const SignUpForm = () => {
                       <div className="error">{formik.errors.passwordConfirm}</div>
                       )}
                 </div>
-                <button type="submit">submit</button>
+                <button type="submit" disabled={!formik.isValid}>submit</button>
             </form>
         </div>
      );
