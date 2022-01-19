@@ -8,7 +8,7 @@
 }
 form{
   width: 28rem;
-  height: 85vh;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,15 +38,25 @@ form{
   border: 1px solid #b0daed;
   border-radius: 5px;
 }
-button{
+.submitBtn{
   outline: none;
-  border: 1px solid #0ea5e9;
+  border: none;
   background-color: #0ea5e9;
   color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 6px 10px;
-  margin: 10px;
-  width: 7rem;
+  margin: 12px 10px 10px 23px;
+  width: 8.5rem;
+}
+.dataBtn{
+  outline: none;
+  border: none;
+  background-color: #0ea4e9b7;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 12px 23px 10px 10px;
+  width: 8.5rem;
 }
 .error{
   color: red;
