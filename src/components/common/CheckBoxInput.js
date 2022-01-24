@@ -1,26 +1,26 @@
 import React from "react";
 
-const RadioInput = ({label, name, formik, radioOptions}) => {
+const CheckBoxInput = ({name, formik, checkBoxOptions}) => {
     return ( 
-        <div className="genderInput">
-            {radioOptions.map((item) => (
+        <div className="checkBox">
+            {checkBoxOptions.map((item) => (
                 <React.Fragment key={item.value}>
                   <input 
-                    type="radio" 
+                    type="checkBox" 
                     id={item.value}
                     name={name}
                     value={item.value}
                     onChange={formik.handleChange}
-                    checked={formik.values[name] === item.value}
+                    checked={formik.values[name].includes(item.value)}
                     />
                   <label htmlFor={item.value}>{item.label}</label>
                 </React.Fragment>
             ))}
             {formik.errors[name] && formik.touched[name] && (
-              <div className="error">{formik.errors[name]}</div>
+              <div className="error checkBoxError">{formik.errors[name]}</div>
             )}
         </div>
      );
 }
  
-export default RadioInput;
+export default CheckBoxInput;

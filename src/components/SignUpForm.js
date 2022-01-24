@@ -5,6 +5,12 @@ import axios from "axios";
 import Input from "./common/Input";
 import RadioInput from "./common/RadioInput";
 import Select from "./common/SelectComponent";
+import CheckBoxInput from "./common/CheckBoxInput";
+
+const checkBoxOptions = [
+    {label: "react.s", value: "react.js"},
+    {label: "vue.js", value: "vue.js"},
+]
 
 const radioOptions = [
     {label: "male", value: "0"},
@@ -28,6 +34,8 @@ const initialValues = {
     passwordConfirm:"",
     gender:"",
     nationality:"",
+    intrests:[],
+    terms: false
 }
 
 // 2.
@@ -53,7 +61,7 @@ const validationSchema = yup.object({
     .required("Password is required")
     .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"),
+        "8 Char, 1 Uppercase, 1 Lowercase, 1 Number and 1 Special"),
     
     passwordConfirm: yup.string()
     .required("Password Confirmation is required")
@@ -62,6 +70,12 @@ const validationSchema = yup.object({
     gender: yup.string().required("Gender is required"),
 
     nationality: yup.string().required("Select nationality !"),
+
+    intrests: yup.array().min(1).required("at least select one expertise"),
+
+    terms: yup.boolean()
+    .required("The terms and conditions must be accepted.")
+    .oneOf([true], "The terms and conditions must be accepted."),
 })
 
 const SignUpForm = () => {
@@ -72,7 +86,7 @@ const SignUpForm = () => {
         initialValues: formValues || initialValues,
         onSubmit,
         validationSchema,
-        validateOnMount: true,
+        validateOnMount: true, 
         enableReinitialize:true,
     })
     console.log(formik.values);
@@ -102,17 +116,37 @@ const SignUpForm = () => {
                    label="Password Confirmation" 
                    type="password" 
                 />
+                 <RadioInput formik={formik} radioOptions={radioOptions} name="gender" />
+
                  <Select
                     selectOptions={selectOptions}
                     name="nationality"
                     formik={formik}
                  />
-                 <RadioInput formik={formik} radioOptions={radioOptions} name="gender" />
 
-                 <button className="submitBtn" type="submit" disabled={!formik.isValid}>submit</button>
-            </form>
+                 <CheckBoxInput formik={formik} checkBoxOptions={checkBoxOptions} name="intrests" />
+
+                 <div className="terms">
+                 <input 
+                    type="checkBox" 
+                    id="terms"
+                    name="terms"
+                    value={true}
+                    onChange={formik.handleChange}
+                    checked={formik.values.terms}
+                 />
+                 <label htmlFor="terms">Terms and conditions</label>
+        
+                 {formik.errors.terms && formik.touched.terms && (
+                    <div className="error termsError">{formik.errors.terms}</div>
+                 )}
+                 </div>
+
+                 <button type="submit" disabled={!formik.isValid}>submit</button>
+            </form> 
         </div>
      );
 }
  
 export default SignUpForm;
+

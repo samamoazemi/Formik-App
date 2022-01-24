@@ -8,7 +8,9 @@
       "password":"Sama@1234",
       "passwordConfirm":"Sama@1234",
       "gender":"1",
-      "nationality":"IR"
+      "nationality":"IR",
+      "intrests":["react.js"],
+      "terms":false
     }
   ]
 }

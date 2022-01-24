@@ -1,7 +1,6 @@
 const Select = ({selectOptions, name, formik}) => {
     return ( 
-        <div className="formControl" >
-            <label>Nationality</label>
+        <div className="formControl selectCountry" >
             <select {...formik.getFieldProps(name)} name={name}>
                 {selectOptions.map((item) => (
                     <option key={item.value} value={item.value}>
