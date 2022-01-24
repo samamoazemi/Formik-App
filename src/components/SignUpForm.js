@@ -24,8 +24,6 @@ const selectOptions = [
     {label: "USA", value: "US"},
 ]
 
-
-// 1.
 const initialValues = {
     name:"",
     email:"",
@@ -38,12 +36,13 @@ const initialValues = {
     terms: false
 }
 
-// 2.
 const onSubmit = (values) => {
-    console.log(values)
+    axios
+      .post("http://localhost:3001/users", values)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err))
 }
 
-// 3.
 const validationSchema = yup.object({
     name: yup.string()
     .required("Name is required")

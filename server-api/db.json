@@ -1,16 +1,18 @@
 {
   "users": [
     {
-      "id":"1",
-      "name":"SamaMg",
-      "email":"moazemisama@gmail.com",
-      "phoneNumber":"09339014690",
-      "password":"Sama@1234",
-      "passwordConfirm":"Sama@1234",
-      "gender":"1",
-      "nationality":"IR",
-      "intrests":["react.js"],
-      "terms":false
+      "id": "1",
+      "name": "SamaMg",
+      "email": "moazemisama@gmail.com",
+      "phoneNumber": "09339014690",
+      "password": "Sama@1234",
+      "passwordConfirm": "Sama@1234",
+      "gender": "1",
+      "nationality": "IR",
+      "intrests": [
+        "react.js"
+      ],
+      "terms": true
     }
   ]
 }
